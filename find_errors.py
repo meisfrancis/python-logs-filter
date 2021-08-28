@@ -6,6 +6,11 @@ from get_system_argument import get_args
 
 
 def error_search(log_file):
+    """
+    Require input from user and return result after searching throughout the log file
+    :param str log_file: Path to log file
+    :return list[str]:
+    """
     error = input('What is the error? ')
     returned_errors = []
     with open(log_file, mode='r', encoding='UTF-8') as file:
@@ -20,6 +25,12 @@ def error_search(log_file):
 
 
 def file_output(returned_errors, output_file_path, output_file_name):
+    """
+    Write error to output file
+    :param list[str] returned_errors: List error get from func error_search
+    :param str output_file_path: Path to output file
+    :param str output_file_name: name of output file
+    """
     with open(f'{output_file_path}/{output_file_name}', 'w') as file:
         for error in returned_errors:
             file.write(error)
